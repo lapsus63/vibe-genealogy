@@ -1,0 +1,45 @@
+---
+description: Architecture hexagonale Java 25 — domaine pur, ports, adapters
+globs: backend/**/*
+alwaysApply: false
+---
+
+# Backend Java (hexagonal)
+
+## Dépendances autorisées
+
+```
+domain/     →  aucune dépendance Spring/HTTP
+application/ → domain + ports
+adapter/in/  → application + domain + Spring
+adapter/out/ → ports out + Spring + gedcom4j / FS
+```
+
+## Services domaine
+
+- `TreeExpander.expand(genealogy, rootId, asc, desc)` — expansion strict asc/desc + conjoints
+- `KinshipCalculator.compute(genealogy, fromId, toId)` — MRCA, labels français
+- Mode REST `PEDIGREE` / `DESCENDANTS` / `MIXED` appliqué dans `GenealogyService` (force desc=0 ou asc=0)
+
+## Controllers
+
+- `TreeController` — `/api/tree`, `/api/tree/expand`, `/api/persons`, `/api/persons/{id}`, `/api/kinship`, `/api/search`, médias
+- `ImportExportController` — import/export via `FileFormatAdapter`
+- `AuthController` + JWT filter
+
+## Adapters out (implémentés)
+
+1. `InMemoryTreeRepository` — cache + WAL JSON + snapshot GEDCOM planifié
+2. `GedcomFileAdapter` / `JsonFileAdapter` / `GefxFileAdapter` (GEFX export minimal, import no-op)
+3. `FileSystemMediaRepository` — `data/media/{personId}/`
+4. Bootstrap `src/main/resources/bootstrap/tree.ged` (famille démo alignée mock frontend)
+
+## Encore ouvert
+
+- Rôles ADMIN/EDITOR/VIEWER sur mutations (doc `backend/docs/security.md`)
+- Sources/citations/geo dans PersonDetail (champs présents, vides en v1)
+- Import GEFX profond
+
+## Tests
+
+Tests domaine dans `backend/src/test/`. Préférer des graphes explicites (comme `DomainTest.sample()`) aux mocks Spring. `mvn test` ; JaCoCo ≥ 0.8.14 pour Java 25.

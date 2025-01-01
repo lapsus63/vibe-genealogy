@@ -1,0 +1,35 @@
+---
+description: Conventions frontend généalogie (API, store, layout, arbre)
+globs: frontend/src/lib/genealogy/**/*,frontend/src/components/tree/**/*,frontend/src/pages/**
+alwaysApply: false
+---
+
+# Frontend généalogie
+
+## Couches
+
+```
+pages/* + AuthenticatedLayout  →  api.ts  →  mock-data.ts | Spring Boot
+TreeCanvas  →  useTreeStore (Zustand)  →  layoutGraph() → React Flow
+kinship.tsx  →  computeKinship() client-side (n'appelle pas /api/kinship)
+```
+
+## Règles
+
+- **État serveur** : géré dans les pages via `api.ts`, pas dans Zustand
+- **État UI arbre** : `useTreeStore` — rootId, asc/desc (0–8), mode, layoutAlgo
+- **Demo fallback** : `api.ts` lance `NO_BACKEND` si pas de BASE_URL ; toujours prévoir le mock
+- **Layout** : algorithmes dans `layout.ts` (DAGRE, FORCE, FRUCHTERMAN, RADIAL) ; ne pas dupliquer dans TreeCanvas
+
+## Pièges connus
+
+- `resetView()` remet asc/desc à **8** alors que l'initial est **2** — incohérence à corriger, pas reproduire
+- `exportUrl()` sans JWT : l'export authentifié doit passer par `fetch` + blob, pas `window.open`
+- `mockExpand()` est plus riche que `TreeExpander` Java (cousins, modes PEDIGREE/DESCENDANTS) — documenter tout écart
+- Routes = React Router (`frontend/src/App.tsx`), pas TanStack Router
+
+## React Flow
+
+- Nœuds custom : `PersonNode.tsx`
+- Indicateurs relations cachées : comparer sous-graphe expand vs graphe complet
+- Mobile : long-press 6s pour drag temporaire

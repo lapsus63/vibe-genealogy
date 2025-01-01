@@ -1,0 +1,34 @@
+---
+description: Contexte global du projet arbre généalogique (frontend + backend Java 25)
+alwaysApply: true
+---
+
+# Family Tree Canvas — contexte projet
+
+Application d'arbre généalogique en **monorepo** :
+
+| Partie | Stack | Emplacement |
+|--------|-------|-------------|
+| Frontend | React 19, React Router, React Flow, Zustand | `frontend/` |
+| Backend | Spring Boot 3.5, Java 25, hexagonal | `backend/` |
+
+## Modes d'exécution
+
+- **Demo** : sans `VITE_API_BASE_URL` → `frontend/src/lib/genealogy/mock-data.ts`
+- **Production locale** : `VITE_API_BASE_URL=http://localhost:8080` + backend Spring Boot
+
+## Contrat REST partagé
+
+Types frontend dans `frontend/src/lib/genealogy/types.ts`. Le backend doit y rester aligné.
+
+## État actuel du backend
+
+Couche `domain/port/out/` + `adapter/out/` **implémentée** (GEDCOM, JSON, GEFX minimal, médias FS, cache + WAL). Bootstrap : `classpath:bootstrap/tree.ged` → `data/tree.ged`.
+
+Encore ouvert : enforcement rôles sur mutations, export auth côté frontend, parité kinship / expand cousins.
+
+## Conventions
+
+- Français pour l'UI et les labels de parenté
+- Conserver la branche main dans un état fonctionnel
+- Vérifier attentivement la configuration dans `frontend/vite.config.ts`

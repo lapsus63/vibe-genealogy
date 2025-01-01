@@ -1,0 +1,34 @@
+---
+description: Stratégie de tests — Vitest frontend, JUnit backend, cas limites
+globs: "**/*.{test,spec}.{ts,tsx,java}"
+alwaysApply: false
+---
+
+# Tests
+
+## Frontend (à ajouter — Vitest recommandé)
+
+Priorité unitaire sur la logique pure (sans React Flow) :
+
+| Module | Cas limites obligatoires |
+|--------|-------------------------|
+| `kinship.ts` | même personne, demi-frères, cousins, removed, composantes déconnectées |
+| `mockExpand()` / futur alignement backend | mode PEDIGREE/DESCENDANTS/MIXED, asc=0 desc=0, rootId invalide |
+| `layout.ts` | graphe vide, nœud isolé, conjoints sans enfants, 20+ nœuds en radial |
+
+## Backend (JUnit 5)
+
+`DomainTest` couvre déjà expand (y compris asc/desc 0), kinship siblings/no-link, unions multiples, removePerson, round-trip GEDCOM.
+
+Étendre avant d'ajouter des tests d'intégration REST :
+
+- Parité labels `KinshipCalculator` vs `computeKinship()` TS
+- Half-siblings / cousins
+- Cycles dans les liens parent-enfant (terminaison)
+
+## Intégration (phase 2)
+
+- `@WebMvcTest` ou `@SpringBootTest` pour auth JWT + codes HTTP
+- Import GEDCOM corrompu → erreur explicite
+
+Ne pas ajouter de tests triviaux qui ne couvrent que des getters/setters.

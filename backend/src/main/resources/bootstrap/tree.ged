@@ -1,0 +1,193 @@
+0 HEAD
+1 SOUR FamilyTreeCanvas
+2 NAME Family Tree Canvas
+2 VERS 1.0
+1 DEST FamilyTreeCanvas
+1 CHAR UTF-8
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+0 @I1@ INDI
+1 NAME Jean /Dupont/
+2 GIVN Jean
+2 SURN Dupont
+1 SEX M
+1 BIRT
+2 DATE 1920
+1 DEAT
+2 DATE 1995
+0 @I2@ INDI
+1 NAME Marie /Martin/
+2 GIVN Marie
+2 SURN Martin
+1 SEX F
+1 BIRT
+2 DATE 1922
+1 DEAT
+2 DATE 2001
+0 @I3@ INDI
+1 NAME Pierre /Dupont/
+2 GIVN Pierre
+2 SURN Dupont
+1 SEX M
+1 BIRT
+2 DATE 1945
+1 DEAT
+2 DATE 2020
+0 @I4@ INDI
+1 NAME Sylvie /Bernard/
+2 GIVN Sylvie
+2 SURN Bernard
+1 SEX F
+1 BIRT
+2 DATE 1948
+0 @I5@ INDI
+1 NAME Luc /Dupont/
+2 GIVN Luc
+2 SURN Dupont
+1 SEX M
+1 BIRT
+2 DATE 1972
+0 @I6@ INDI
+1 NAME Emma /Petit/
+2 GIVN Emma
+2 SURN Petit
+1 SEX F
+1 BIRT
+2 DATE 1974
+0 @I7@ INDI
+1 NAME Léa /Dupont/
+2 GIVN Léa
+2 SURN Dupont
+1 SEX F
+1 BIRT
+2 DATE 2001
+0 @I8@ INDI
+1 NAME Hugo /Dupont/
+2 GIVN Hugo
+2 SURN Dupont
+1 SEX M
+1 BIRT
+2 DATE 2004
+0 @I9@ INDI
+1 NAME Antoine /Martin/
+2 GIVN Antoine
+2 SURN Martin
+1 SEX M
+1 BIRT
+2 DATE 1895
+1 DEAT
+2 DATE 1970
+0 @I10@ INDI
+1 NAME Louise /Roux/
+2 GIVN Louise
+2 SURN Roux
+1 SEX F
+1 BIRT
+2 DATE 1898
+1 DEAT
+2 DATE 1978
+0 @I20@ INDI
+1 NAME Claire /Dupont/
+2 GIVN Claire
+2 SURN Dupont
+1 SEX F
+1 BIRT
+2 DATE 1947
+0 @I21@ INDI
+1 NAME Marc /Lefèvre/
+2 GIVN Marc
+2 SURN Lefèvre
+1 SEX M
+1 BIRT
+2 DATE 1944
+0 @I22@ INDI
+1 NAME Sophie /Dupont/
+2 GIVN Sophie
+2 SURN Dupont
+1 SEX F
+1 BIRT
+2 DATE 1975
+0 @I23@ INDI
+1 NAME David /Moreau/
+2 GIVN David
+2 SURN Moreau
+1 SEX M
+1 BIRT
+2 DATE 1973
+0 @I24@ INDI
+1 NAME Nicolas /Lefèvre/
+2 GIVN Nicolas
+2 SURN Lefèvre
+1 SEX M
+1 BIRT
+2 DATE 1970
+0 @I25@ INDI
+1 NAME Julie /Garnier/
+2 GIVN Julie
+2 SURN Garnier
+1 SEX F
+1 BIRT
+2 DATE 1972
+0 @I26@ INDI
+1 NAME Chloé /Moreau/
+2 GIVN Chloé
+2 SURN Moreau
+1 SEX F
+1 BIRT
+2 DATE 2003
+0 @I27@ INDI
+1 NAME Tom /Moreau/
+2 GIVN Tom
+2 SURN Moreau
+1 SEX M
+1 BIRT
+2 DATE 2006
+0 @I28@ INDI
+1 NAME Manon /Lefèvre/
+2 GIVN Manon
+2 SURN Lefèvre
+1 SEX F
+1 BIRT
+2 DATE 2000
+0 @I29@ INDI
+1 NAME Paul /Lefèvre/
+2 GIVN Paul
+2 SURN Lefèvre
+1 SEX M
+1 BIRT
+2 DATE 2002
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 CHIL @I20@
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I4@
+1 CHIL @I5@
+1 CHIL @I22@
+0 @F3@ FAM
+1 HUSB @I5@
+1 WIFE @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+0 @F4@ FAM
+1 HUSB @I9@
+1 WIFE @I10@
+1 CHIL @I2@
+0 @F5@ FAM
+1 HUSB @I21@
+1 WIFE @I20@
+1 CHIL @I24@
+0 @F6@ FAM
+1 HUSB @I23@
+1 WIFE @I22@
+1 CHIL @I26@
+1 CHIL @I27@
+0 @F7@ FAM
+1 HUSB @I24@
+1 WIFE @I25@
+1 CHIL @I28@
+1 CHIL @I29@
+0 TRLR
